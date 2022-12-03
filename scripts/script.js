@@ -1,20 +1,57 @@
+const resultTxt = document.querySelector(".result")
+const historicText = document.querySelector(".historic")
+const buttons = document.querySelectorAll(".secAction button");
+resultTxt.innerText = ""
+// console.log(result)
 
-let result = document.getElementsByClassName('result').innerHtml = 555
-const buttons = document.querySelectorAll(".buttonNumber")
+class Calculator {
+  constructor(resultTxt, historicText) {
+    this.resultTxt = resultTxt;
+    this.historicText = historicText
+    this.operation = ""
+  }
 
-console.log(buttons)
-
-function isNumber(number1, number2) {
-    if (!isNaN(parseFloat(number1)) && !isNaN(parseFloat(number2))) {
-        console.log("foi")   
+  addDigit(digit){
+    // check if current operation alread has a dot
+    if(digit === "." && this.resultTxt.innerText.includes(".")){
+        return
     }
-    else{
-        console.log("não foi")
+    
+    this.operation = digit
+    this.updateScreen()
+  }
+
+  processOperation(operation){
+    switch (operation) {
+        case "DEL":
+            this.processDellOperator()
+            break;
+        case "+":
+
+        default:
+            break;
     }
+  }
+
+  updateScreen() {
+    this.resultTxt.innerText += this.operation
+  }
+
+  processDellOperator(){
+    this.resultTxt.innerText = this.resultTxt.innerText.slice(0, -1)
+  }
 }
 
-function sum(number1, number2) {
-    return number1 + number2
-}
+const calc = new Calculator(resultTxt);
 
-isNumber(10, "10")
+buttons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const value = e.target.innerText;
+
+    if (+value >= 0 || value === ".") {
+      calc.addDigit(value)
+    } else {
+      calc.processOperation(value);
+    }
+  });
+});
