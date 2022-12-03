@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-style: none;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    line-height: 48px;
+}
+
+.area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    /* border: 2px solid red; */
+    /* background-image: url("data:image/svg+xml,%3Csvg id='visual' viewBox='0 0 1920 1080' width='1920' height='1080' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1'%3E%3Crect x='0' y='0' width='1920' height='1080' fill='%23DAF0FF'%3E%3C/rect%3E%3Cg fill='%23109DFF'%3E%3Ccircle r='300' cx='612' cy='833'%3E%3C/circle%3E%3Ccircle r='94' cx='891' cy='42'%3E%3C/circle%3E%3Ccircle r='243' cx='27' cy='233'%3E%3C/circle%3E%3Ccircle r='176' cx='1388' cy='662'%3E%3C/circle%3E%3Ccircle r='250' cx='1899' cy='54'%3E%3C/circle%3E%3Ccircle r='262' cx='1843' cy='1072'%3E%3C/circle%3E%3C/g%3E%3C/svg%3E"); */
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 375px;
+    /* max-width: 100px; */
+    /* height: 00px; */
+    padding: 1rem;
+    background: linear-gradient(167.27deg, #F7F8FB -5.94%, rgba(247, 248, 251, 0.19) 103.62%);
+    backdrop-filter: blur(2rem);
+    border-radius: 2.4375rem;
+}
+
+.secResult {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    /* border: 2px solid red; */
+    
+    margin:0 20px 0 20px;
+}
+
+.result {
+    font-size: 24pt;
+}
+
+.secAction {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem;
+}
+
+.secAction button {
+    width: 3.875rem;
+    height: 3.75rem;
+    border-radius: .75rem;
+    font-weight: 500;
+    font-size: 18pt;
+}
+
+.buttonNumber {
+    background: linear-gradient(129.7deg, rgba(255, 255, 255, 0.6) -9.69%, rgba(255, 255, 255, 0.4) 114.23%);
+    backdrop-filter: blur(0.3rem);
+    color: black;
+    border: .0625rem solid #c8d3f7;
+}
+
+.buttons .buttonZero {
+    width: 9rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .625rem;
+    max-width: 220px;
+}
+
+.buttonNumber:hover {
+    background: #e2e8fa;
+}
+
+.buttonsRight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: .625rem;
+}
+
+.buttonOperation {
+    background: linear-gradient(203.57deg, #ADD8FF -8.99%, rgba(173, 216, 255, 0.28) 111.42%);
+    box-shadow: inset 0px 0px 9px rgba(255, 255, 255, 0.43);
+    border:1px solid #ADD8FF;
+}
+
+.buttonOperation:hover {
+    background: #a9d6ff;;
+}
+
+.buttonsRight .buttonPlus, .buttonsRight .buttonEquals {
+    height: 6rem;
+}
