@@ -1,14 +1,15 @@
-const resultTxt = document.querySelector(".result")
-const historicText = document.querySelector(".historic")
+const resultTxt = document.querySelector(".result");
+const historicText = document.querySelector(".historic");
 const buttons = document.querySelectorAll(".secAction button");
 resultTxt.innerText = ""
-// console.log(result)
+historicText.innerText = ""
+console.log(historicText.innerText)
 
 class Calculator {
   constructor(resultTxt, historicText) {
     this.resultTxt = resultTxt;
-    this.historicText = historicText
-    this.operation = ""
+    this.historicText = historicText;
+    this.operation = "";
   }
 
   addDigit(digit){
@@ -22,27 +23,64 @@ class Calculator {
   }
 
   processOperation(operation){
+
+    let operationValue;
+    let historicValue = +this.historicText.innerText;
+    let previewValue = +this.resultTxt.innerText;
+
     switch (operation) {
         case "DEL":
             this.processDellOperator()
             break;
         case "+":
+            operationValue = historicValue + previewValue;
+            this.plusOperation()
+            console.log(operationValue)            
+            break;
+        case "Ac":
+            this.processAcOperator()
+            break;
 
+        case "=":
+            this.equalsOperation()
+            break
         default:
             break;
     }
+  }
+
+  clearCalc(){
+    this.resultTxt.innerText = ""
+  }
+  plusOperation() {
+    this.historicCalc()
+    this.clearCalc()
+  }
+
+  equalsOperation() {
+    this.resultTxt.innerText = parseFloat(this.historicText.innerText) + parseFloat(this.resultTxt.innerText)
+    this.historicText.innerText = this.historicText.innerText + this.resultTxt.innerText
   }
 
   updateScreen() {
     this.resultTxt.innerText += this.operation
   }
 
+  historicCalc() {
+    this.historicText.innerText = this.resultTxt.innerText
+  }
+
   processDellOperator(){
     this.resultTxt.innerText = this.resultTxt.innerText.slice(0, -1)
   }
+
+  processAcOperator(){
+    this.resultTxt.innerText = ""
+    this.historicText.innerText = ""
+  }
 }
 
-const calc = new Calculator(resultTxt);
+const calc = new Calculator(resultTxt, historicText);
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
