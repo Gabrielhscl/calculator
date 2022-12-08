@@ -34,7 +34,7 @@ class Calculator {
             break;
         case "+":
             operationValue = historicValue + previewValue;
-            this.plusOperation()
+            this.plusOperation("+")
             console.log(operationValue)            
             break;
         case "Ac":
@@ -52,8 +52,8 @@ class Calculator {
   clearCalc(){
     this.resultTxt.innerText = ""
   }
-  plusOperation() {
-    this.historicCalc()
+  plusOperation(operation) {
+    this.historicCalc(operation)
     this.clearCalc()
   }
 
@@ -66,8 +66,8 @@ class Calculator {
     this.resultTxt.innerText += this.operation
   }
 
-  historicCalc() {
-    this.historicText.innerText = this.resultTxt.innerText
+  historicCalc(operation) {
+    this.historicText.innerText += operation + this.resultTxt.innerText
   }
 
   processDellOperator(){
@@ -85,6 +85,9 @@ const calc = new Calculator(resultTxt, historicText);
 buttons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const value = e.target.innerText;
+    let sound1 = new Audio()
+    sound1.src = "./sounds/sound1.wav"
+    sound1.play()
 
     if (+value >= 0 || value === ".") {
       calc.addDigit(value)
